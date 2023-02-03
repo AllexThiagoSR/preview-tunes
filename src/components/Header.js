@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { getUser } from '../services/userAPI';
 import Loading from './Loading';
+import NavBar from './NavBar';
 import User from './User';
+import pagesPath from '../helpers/pagesPath';
 
 class Header extends Component {
   state = {
@@ -15,7 +17,6 @@ class Header extends Component {
 
   getUserLogged = async () => {
     const { name } = await getUser();
-    console.log(name);
     this.setState({
       loading: false,
       userName: name,
@@ -29,6 +30,9 @@ class Header extends Component {
         {
           (loading) ? <Loading /> : <User name={ userName } />
         }
+        <NavBar
+          paths={ pagesPath }
+        />
       </header>
     );
   }
