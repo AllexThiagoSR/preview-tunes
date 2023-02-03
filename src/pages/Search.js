@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import AlbumsList from '../components/AlbumsList';
 import Header from '../components/Header';
 import SearchForm from '../components/SearchForm';
 
 class Search extends Component {
   state = {
     artistName: '',
+    albums: [],
   };
 
   handleChange = ({ target: { name, value } }) => {
@@ -14,7 +16,7 @@ class Search extends Component {
   };
 
   render() {
-    const { artistName } = this.state;
+    const { artistName, albums } = this.state;
     return (
       <div data-testid="page-search">
         <Header />
@@ -22,6 +24,7 @@ class Search extends Component {
           handleChange={ this.handleChange }
           artistName={ artistName }
         />
+        <AlbumsList albums={ albums } />
       </div>
     );
   }
