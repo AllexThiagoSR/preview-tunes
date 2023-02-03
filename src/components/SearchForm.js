@@ -1,18 +1,9 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class SearchForm extends Component {
-  state = {
-    artistName: '',
-  };
-
-  handleChange = ({ target: { name, value } }) => {
-    this.setState({
-      [name]: value,
-    });
-  };
-
   render() {
-    const { artistName } = this.state;
+    const { artistName, handleChange } = this.props;
     const minCaracters = 2;
     return (
       <form>
@@ -21,7 +12,7 @@ class SearchForm extends Component {
           value={ artistName }
           name="artistName"
           data-testid="search-artist-input"
-          onChange={ this.handleChange }
+          onChange={ handleChange }
         />
         <button
           data-testid="search-artist-button"
@@ -33,5 +24,10 @@ class SearchForm extends Component {
     );
   }
 }
+
+SearchForm.propTypes = {
+  artistName: PropTypes.string.isRequired,
+  handleChange: PropTypes.func.isRequired,
+};
 
 export default SearchForm;
