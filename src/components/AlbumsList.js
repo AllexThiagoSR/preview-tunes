@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import AlbumContainer from './AlbumContainer';
 
 class AlbumsList extends Component {
   render() {
@@ -7,7 +8,11 @@ class AlbumsList extends Component {
     return (
       <ul>
         {
-          albums
+          albums.length > 0 ? albums.map((album) => (
+            <li key={ album.collectionId }>
+              <AlbumContainer album={ album } />
+            </li>
+          )) : <p>Nenhum álbum foi encontrado</p>
         }
       </ul>
     );

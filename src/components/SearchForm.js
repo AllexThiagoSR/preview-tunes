@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 class SearchForm extends Component {
   render() {
-    const { artistName, handleChange } = this.props;
+    const { artistName, handleChange, buttonClickFunc } = this.props;
     const minCaracters = 2;
     return (
       <form>
@@ -17,6 +17,8 @@ class SearchForm extends Component {
         <button
           data-testid="search-artist-button"
           disabled={ artistName.length < minCaracters }
+          onClick={ buttonClickFunc }
+          type="button"
         >
           Pesquisar
         </button>
@@ -28,6 +30,7 @@ class SearchForm extends Component {
 SearchForm.propTypes = {
   artistName: PropTypes.string.isRequired,
   handleChange: PropTypes.func.isRequired,
+  buttonClickFunc: PropTypes.func.isRequired,
 };
 
 export default SearchForm;
