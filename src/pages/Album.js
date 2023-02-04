@@ -9,6 +9,8 @@ class Album extends Component {
   state = {
     albumInfos: {},
     tracks: [],
+    // favoriteSongs: [],
+    isFavorite: {},
   };
 
   async componentDidMount() {
@@ -20,13 +22,23 @@ class Album extends Component {
     });
   }
 
+  onChangeAddFavoriteSong = ({ target: { checked, name } }) => {
+    this.setState(({ isFavorite }) => ({
+      isFavorite: { ...isFavorite, [name]: checked },
+    }));
+  };
+
   render() {
-    const { albumInfos, tracks } = this.state;
+    const { albumInfos, tracks, isFavorite } = this.state;
     return (
       <div data-testid="page-album">
         <Header />
         <AlbumContainer album={ albumInfos } />
-        <PlayList tracks={ tracks } />
+        <PlayList
+          tracks={ tracks }
+          handleChange={ this.onChangeAddFavoriteSong }
+          favoritesSongsIds={ isFavorite }
+        />
       </div>
     );
   }
