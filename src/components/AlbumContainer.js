@@ -1,19 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 
 class AlbumContainer extends Component {
   render() {
-    const { album: { collectionName, collectionId } } = this.props;
+    const { album: { collectionName, artistName } } = this.props;
     return (
       <div>
-        { collectionName }
-        <Link
-          to={ `/album/${collectionId}` }
-          data-testid={ `link-to-album-${collectionId}` }
-        >
-          Open Album
-        </Link>
+        <h3 data-testid="album-name">{ collectionName }</h3>
+        <p data-testid="artist-name">{ artistName }</p>
       </div>
     );
   }

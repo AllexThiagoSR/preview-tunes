@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import AlbumContainer from './AlbumContainer';
 
 class AlbumsList extends Component {
@@ -11,6 +12,12 @@ class AlbumsList extends Component {
           albums.length > 0 ? albums.map((album) => (
             <li key={ album.collectionId }>
               <AlbumContainer album={ album } />
+              <Link
+                to={ `/album/${album.collectionId}` }
+                data-testid={ `link-to-album-${album.collectionId}` }
+              >
+                Open Album
+              </Link>
             </li>
           )) : <p>Nenhum álbum foi encontrado</p>
         }
