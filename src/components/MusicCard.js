@@ -9,6 +9,8 @@ class MusicCard extends Component {
       checked,
     } = this.props;
 
+    const { track } = this.props;
+
     return (
       <div>
         <span>{ trackName }</span>
@@ -27,9 +29,8 @@ class MusicCard extends Component {
             id={ `favorite-${trackId}` }
             name={ trackId }
             data-testid={ `checkbox-music-${trackId}` }
-            value={ checked }
             checked={ checked }
-            onChange={ handleChange }
+            onChange={ ({ target }) => handleChange(track, trackId, target) }
           />
         </label>
       </div>

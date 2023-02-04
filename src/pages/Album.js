@@ -11,7 +11,6 @@ class Album extends Component {
   state = {
     albumInfos: {},
     tracks: [],
-    // favoriteSongs: [],
     isFavorite: {},
     loading: false,
   };
@@ -25,13 +24,12 @@ class Album extends Component {
     });
   }
 
-  onChangeAddFavoriteSong = async ({ target: { checked, name } }) => {
-    const { tracks } = this.state;
-    this.setState(({ isFavorite }) => ({
-      isFavorite: { ...isFavorite, [name]: checked },
+  onChangeAddFavoriteSong = async (songToAdd, id, { checked }) => {
+    const { isFavorite } = this.state;
+    this.setState({
+      isFavorite: { ...isFavorite, [`${id}`]: checked },
       loading: true,
-    }));
-    const songToAdd = tracks.find(({ trackId }) => trackId === Number(name));
+    });
     await addSong(songToAdd);
     this.setState({
       loading: false,
@@ -40,16 +38,22 @@ class Album extends Component {
 
   render() {
     const { albumInfos, tracks, isFavorite, loading } = this.state;
-    if (loading) return <Loading />;
-    return (
-      <div data-testid="page-album">
-        <Header />
+    const albumPage = (
+      <>
         <AlbumContainer album={ albumInfos } />
         <PlayList
           tracks={ tracks }
           handleChange={ this.onChangeAddFavoriteSong }
           favoritesSongsIds={ isFavorite }
         />
+      </>
+    );
+    return (
+      <div data-testid="page-album">
+        <Header />
+        {
+          loading ? <Loading /> : albumPage
+        }
       </div>
     );
   }
