@@ -4,7 +4,7 @@ import Header from '../components/Header';
 import getMusics from '../services/musicsAPI';
 import AlbumContainer from '../components/AlbumContainer';
 import PlayList from '../components/PlayList';
-import { addSong } from '../services/favoriteSongsAPI';
+import { addSong, getFavoriteSongs } from '../services/favoriteSongsAPI';
 import Loading from '../components/Loading';
 
 class Album extends Component {
@@ -18,9 +18,15 @@ class Album extends Component {
   async componentDidMount() {
     const { match: { params } } = this.props;
     const [albumInfos, ...tracks] = await getMusics(params.id);
+    const favoriteSongs = await getFavoriteSongs();
+    const isFavorite = favoriteSongs.reduce((acc, { trackId }) => ({
+      ...acc,
+      [`${trackId}`]: true,
+    }), {});
     this.setState({
       albumInfos,
       tracks,
+      isFavorite,
     });
   }
 
