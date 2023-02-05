@@ -4,7 +4,7 @@ import Header from '../components/Header';
 import getMusics from '../services/musicsAPI';
 import AlbumContainer from '../components/AlbumContainer';
 import PlayList from '../components/PlayList';
-import { addSong, getFavoriteSongs } from '../services/favoriteSongsAPI';
+import { addSong, getFavoriteSongs, removeSong } from '../services/favoriteSongsAPI';
 import Loading from '../components/Loading';
 
 class Album extends Component {
@@ -21,7 +21,7 @@ class Album extends Component {
     const favoriteSongs = await getFavoriteSongs();
     const isFavorite = favoriteSongs.reduce((acc, { trackId }) => ({
       ...acc,
-      [`${trackId}`]: true,
+      [trackId]: true,
     }), {});
     this.setState({
       albumInfos,
@@ -30,13 +30,14 @@ class Album extends Component {
     });
   }
 
-  onChangeAddFavoriteSong = async (songToAdd, id, { checked }) => {
+  onChangeAddFavoriteSong = async (songClicked, id, { checked }) => {
     const { isFavorite } = this.state;
     this.setState({
-      isFavorite: { ...isFavorite, [`${id}`]: checked },
+      isFavorite: { ...isFavorite, [id]: checked },
       loading: true,
     });
-    await addSong(songToAdd);
+    if (checked) await addSong(songClicked);
+    else await removeSong(songClicked);
     this.setState({
       loading: false,
     });
