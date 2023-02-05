@@ -4,13 +4,13 @@ import PropTypes from 'prop-types';
 class MusicCard extends Component {
   render() {
     const {
-      track: { previewUrl, trackName, trackId },
+      track: { previewUrl, trackName },
       handleChange,
       checked,
+      trackId,
     } = this.props;
 
     const { track } = this.props;
-
     return (
       <div>
         <span>{ trackName }</span>
@@ -30,7 +30,7 @@ class MusicCard extends Component {
             name={ trackId }
             data-testid={ `checkbox-music-${trackId}` }
             checked={ checked }
-            onChange={ ({ target }) => handleChange(track, trackId, target) }
+            onChange={ ({ target }) => handleChange(track, target) }
           />
         </label>
       </div>
@@ -46,10 +46,10 @@ MusicCard.propTypes = {
   track: PropTypes.shape({
     previewUrl: PropTypes.string,
     trackName: PropTypes.string,
-    trackId: PropTypes.number,
   }).isRequired,
   handleChange: PropTypes.func.isRequired,
   checked: PropTypes.bool,
+  trackId: PropTypes.number.isRequired,
 };
 
 export default MusicCard;

@@ -30,10 +30,10 @@ class Album extends Component {
     });
   }
 
-  onChangeAddFavoriteSong = async (songClicked, id, { checked }) => {
+  onChangeAddFavoriteSong = async (songClicked, { name, checked }) => {
     const { isFavorite } = this.state;
     this.setState({
-      isFavorite: { ...isFavorite, [id]: checked },
+      isFavorite: { ...isFavorite, [name]: checked },
       loading: true,
     });
     if (checked) await addSong(songClicked);

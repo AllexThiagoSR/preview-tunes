@@ -15,6 +15,7 @@ class PlayList extends Component {
                   track={ track }
                   handleChange={ handleChange }
                   checked={ favoritesSongsIds[track.trackId] }
+                  trackId={ track.trackId }
                 />
               </li>
             ))
