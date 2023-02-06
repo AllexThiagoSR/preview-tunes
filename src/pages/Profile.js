@@ -21,7 +21,7 @@ class Profile extends Component {
   render() {
     const { loading, loggedUser } = this.state;
     return (
-      <div data-testid="page-profile-edit">
+      <div data-testid="page-profile">
         <Header />
         {
           loading ? <Loading /> : <UserProfile user={ loggedUser } />

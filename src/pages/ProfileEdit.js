@@ -64,7 +64,7 @@ class ProfileEdit extends Component {
     } = this.state;
 
     return (
-      <div>
+      <div data-testid="page-profile-edit">
         <Header />
         {
           loading ? <Loading /> : <ProfileEditForm
