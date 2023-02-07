@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Loading from '../components/Loading';
 import { createUser } from '../services/userAPI';
+import '../styles/Login.css';
 
 class Login extends Component {
   state = {
     name: '',
     loading: false,
+    email: '',
   };
 
   handleChange = ({ target: { name, type, checked, value } }) => {
@@ -28,25 +30,35 @@ class Login extends Component {
   };
 
   render() {
-    const { name, loading } = this.state;
+    const { name, loading, email } = this.state;
     if (loading) return <Loading />;
     const minCaracters = 3;
     return (
-      <div data-testid="page-login">
-        <form>
-          <label htmlFor="login-name">
-            <input
-              id="login-name"
-              value={ name }
-              name="name"
-              data-testid="login-name-input"
-              onChange={ this.handleChange }
-            />
-          </label>
+      <div data-testid="page-login" className="login-page">
+        <h1>TrybeTunes</h1>
+        <form className="login-form">
+          <input
+            id="login-name"
+            value={ name }
+            name="name"
+            data-testid="login-name-input"
+            onChange={ this.handleChange }
+            placeholder="Nome:"
+            type="text"
+          />
+          <input
+            id="login-email"
+            type="email"
+            value={ email }
+            name="email"
+            data-testid="login-email-input"
+            onChange={ this.handleChange }
+            placeholder="Email:"
+          />
           <button
             type="button"
             data-testid="login-submit-button"
-            disabled={ name.length < minCaracters }
+            disabled={ name.length < minCaracters || (email.match(/\S+@\S+\.\S+/) === null) }
             onClick={ this.onClickSendButton }
           >
             Enviar

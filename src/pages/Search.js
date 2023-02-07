@@ -4,6 +4,7 @@ import Header from '../components/Header';
 import SearchForm from '../components/SearchForm';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
 import Loading from '../components/Loading';
+import '../styles/Search.css';
 
 class Search extends Component {
   state = {
@@ -36,7 +37,7 @@ class Search extends Component {
   render() {
     const { artistName, loading, albums, text } = this.state;
     return (
-      <div data-testid="page-search">
+      <div data-testid="page-search" className="search-page">
         <Header />
         <SearchForm
           handleChange={ this.handleChange }

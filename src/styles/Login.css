@@ -1,0 +1,36 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.login-page {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+}
+
+.login-form {
+  border: 1px black solid;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+  justify-content: center;
+  padding: 0 40px;
+  width: 400px;
+}
+
+.login-form * {
+  margin-bottom: 7px;
+  width: 100%;
+}
+
+.login-page h1 {
+  margin: 0 0 50px;
+}
+
+/* h1 {
+  color: red;
+} */

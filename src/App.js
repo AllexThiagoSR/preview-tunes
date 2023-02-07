@@ -11,18 +11,19 @@ import Search from './pages/Search';
 class App extends React.Component {
   render() {
     return (
-      <>
-        <p>TrybeTunes</p>
-        <Switch>
-          <Route path="/profile/edit" component={ ProfileEdit } />
-          <Route path="/favorites" component={ Favorites } />
-          <Route path="/profile" component={ Profile } />
-          <Route path="/album/:id" component={ Album } />
-          <Route path="/search" component={ Search } />
-          <Route exact path="/" component={ Login } />
-          <Route component={ NotFound } />
-        </Switch>
-      </>
+      <Switch>
+        <Route path="/profile/edit" component={ ProfileEdit } />
+        <Route path="/favorites" component={ Favorites } />
+        <Route path="/profile" component={ Profile } />
+        <Route path="/album/:id" component={ Album } />
+        <Route path="/search" component={ Search } />
+        <Route
+          exact
+          path="/"
+          component={ Login }
+        />
+        <Route component={ NotFound } />
+      </Switch>
     );
   }
 }

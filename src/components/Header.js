@@ -4,6 +4,7 @@ import Loading from './Loading';
 import NavBar from './NavBar';
 import User from './User';
 import pagesPath from '../helpers/pagesPath';
+import '../styles/Header.css';
 
 class Header extends Component {
   state = {
@@ -26,7 +27,8 @@ class Header extends Component {
   render() {
     const { loading, userName } = this.state;
     return (
-      <header data-testid="header-component">
+      <header data-testid="header-component" className="header-container">
+        <h1>TrybeTunes</h1>
         {
           (loading) ? <Loading /> : <User name={ userName } />
         }
