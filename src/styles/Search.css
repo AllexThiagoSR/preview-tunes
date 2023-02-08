@@ -5,13 +5,13 @@
 .form-results-container {
   display: flex;
   flex-direction: column;
-  width: 90%;
+  width: 95%;
 }
 
 .search-form {
   align-items: center;
   display: flex;
-  height: 20%;
+  height: 15%;
   justify-content: center;
 }
 
@@ -31,8 +31,11 @@ input {
   display: flex;
   flex-direction: column;
   height: 80vh;
-  justify-content: center;
   padding: 50px 50px 20px;
+}
+
+.albuns-container p {
+  align-self: center;
 }
 
 .albuns-container h2 {

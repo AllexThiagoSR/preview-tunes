@@ -10,6 +10,7 @@ class Header extends Component {
   state = {
     loading: true,
     userName: '',
+    image: '',
   };
 
   componentDidMount() {
@@ -17,15 +18,16 @@ class Header extends Component {
   }
 
   getUserLogged = async () => {
-    const { name } = await getUser();
+    const { name, image } = await getUser();
     this.setState({
       loading: false,
       userName: name,
+      image,
     });
   };
 
   render() {
-    const { loading, userName } = this.state;
+    const { loading, userName, image } = this.state;
     return (
       <header data-testid="header-component" className="header-container">
         <h1>TrybeTunes</h1>
@@ -33,7 +35,7 @@ class Header extends Component {
           paths={ pagesPath }
         />
         {
-          (loading) ? <Loading /> : <User name={ userName } />
+          (loading) ? <Loading /> : <User name={ userName } image={ image } />
         }
       </header>
     );

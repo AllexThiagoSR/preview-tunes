@@ -1,7 +1,37 @@
 .header-container {
+  align-items: center;
   border-right: 1px solid black;
   display: flex;
   flex-direction: column;
   height: 100vh;
-  width: 20%;
+  width: 25%;
+}
+
+.header-container ul {
+  padding: 0;
+}
+
+.header-container ul li {
+  list-style: none;
+}
+
+.header-user {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.header-user div {
+  height: 50px;
+  margin-right: 2px;
+  width: 50px;
+}
+
+.header-user div img {
+  border: 1px solid black;
+  border-radius: 50px;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
 }

@@ -3,9 +3,12 @@ import PropTypes from 'prop-types';
 
 class User extends Component {
   render() {
-    const { name } = this.props;
+    const { name, image } = this.props;
     return (
-      <div>
+      <div className="header-user">
+        <div>
+          <img alt={ `User: ${name}` } src={ image } />
+        </div>
         <span data-testid="header-user-name">{ name }</span>
       </div>
     );
@@ -14,6 +17,7 @@ class User extends Component {
 
 User.propTypes = {
   name: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
 };
 
 export default User;
