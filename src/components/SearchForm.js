@@ -6,9 +6,9 @@ class SearchForm extends Component {
     const { artistName, handleChange, buttonClickFunc } = this.props;
     const minCaracters = 2;
     return (
-      <form>
+      <form className="search-form">
         <input
-          placeholder="Nome do Artista"
+          placeholder="Nome do Artista ou Banda:"
           value={ artistName }
           name="artistName"
           data-testid="search-artist-input"

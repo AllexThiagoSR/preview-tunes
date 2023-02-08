@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import AlbumContainer from './AlbumContainer';
+import AlbumCard from './AlbumCard';
 
 class AlbumsList extends Component {
   render() {
     const { albums } = this.props;
-    return (
-      <ul>
+    const list = (
+      <ul className="albuns-list">
         {
-          albums.length > 0 ? albums.map((album) => (
+          albums.map((album) => (
             <li key={ album.collectionId }>
-              <AlbumContainer album={ album } />
+              <AlbumCard album={ album } />
               <Link
                 to={ `/album/${album.collectionId}` }
                 data-testid={ `link-to-album-${album.collectionId}` }
@@ -19,9 +19,12 @@ class AlbumsList extends Component {
                 Open Album
               </Link>
             </li>
-          )) : <p>Nenhum álbum foi encontrado</p>
+          ))
         }
       </ul>
+    );
+    return (
+      albums.length > 0 ? list : <p>Nenhum álbum foi encontrado</p>
     );
   }
 }

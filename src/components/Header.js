@@ -29,12 +29,12 @@ class Header extends Component {
     return (
       <header data-testid="header-component" className="header-container">
         <h1>TrybeTunes</h1>
-        {
-          (loading) ? <Loading /> : <User name={ userName } />
-        }
         <NavBar
           paths={ pagesPath }
         />
+        {
+          (loading) ? <Loading /> : <User name={ userName } />
+        }
       </header>
     );
   }

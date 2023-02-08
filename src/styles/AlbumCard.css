@@ -1,0 +1,12 @@
+.album-card {
+  align-items: flex-end;
+  display: flex;
+  height: 170px;
+  padding: 20px;
+}
+
+.album-card img {
+  height: 130px;
+  margin-right: 20px;
+  width: 130px;
+}

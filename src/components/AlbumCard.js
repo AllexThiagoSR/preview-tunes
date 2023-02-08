@@ -1,19 +1,23 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import '../styles/AlbumCard.css';
 
-class AlbumContainer extends Component {
+class AlbumCard extends Component {
   render() {
-    const { album: { collectionName, artistName } } = this.props;
+    const { album: { collectionName, artistName, artworkUrl100 } } = this.props;
     return (
-      <div>
-        <h3 data-testid="album-name">{ collectionName }</h3>
-        <p data-testid="artist-name">{ artistName }</p>
+      <div className="album-card">
+        <img alt={ collectionName } src={ artworkUrl100 } />
+        <div>
+          <h3 data-testid="album-name">{ collectionName }</h3>
+          <p data-testid="artist-name">{ artistName }</p>
+        </div>
       </div>
     );
   }
 }
 
-AlbumContainer.propTypes = {
+AlbumCard.propTypes = {
   album: PropTypes.shape({
     artistId: PropTypes.number,
     artistName: PropTypes.string,
@@ -26,4 +30,4 @@ AlbumContainer.propTypes = {
   }).isRequired,
 };
 
-export default AlbumContainer;
+export default AlbumCard;

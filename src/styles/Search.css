@@ -1,3 +1,48 @@
 .search-page {
   display: flex;
 }
+
+.form-results-container {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+}
+
+.search-form {
+  align-items: center;
+  display: flex;
+  height: 20%;
+  justify-content: center;
+}
+
+input {
+  width: 350px;
+}
+
+.albuns-list {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow-y: scroll;
+  padding: 0 50px;
+}
+
+.albuns-container {
+  display: flex;
+  flex-direction: column;
+  height: 80vh;
+  justify-content: center;
+  padding: 50px 50px 20px;
+}
+
+.albuns-container h2 {
+  margin-bottom: 50px;
+}
+
+.albuns-list li {
+  border: 1px solid black;
+  list-style: none;
+  margin: 10px 0;
+  padding: 20px;
+  width: 600px;
+}

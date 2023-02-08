@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Header from '../components/Header';
 import getMusics from '../services/musicsAPI';
-import AlbumContainer from '../components/AlbumContainer';
+import AlbumCard from '../components/AlbumCard';
 import PlayList from '../components/PlayList';
 import { addSong, getFavoriteSongs, removeSong } from '../services/favoriteSongsAPI';
 import Loading from '../components/Loading';
@@ -47,7 +47,7 @@ class Album extends Component {
     const { albumInfos, tracks, isFavorite, loading } = this.state;
     const albumPage = (
       <>
-        <AlbumContainer album={ albumInfos } />
+        <AlbumCard album={ albumInfos } />
         <PlayList
           tracks={ tracks }
           handleChange={ this.onChangeAddFavoriteSong }

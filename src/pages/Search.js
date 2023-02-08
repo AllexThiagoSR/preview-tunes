@@ -39,19 +39,21 @@ class Search extends Component {
     return (
       <div data-testid="page-search" className="search-page">
         <Header />
-        <SearchForm
-          handleChange={ this.handleChange }
-          artistName={ artistName }
-          buttonClickFunc={ this.searchAlbums }
-        />
-        {
-          loading ? <Loading /> : (
-            <>
-              <h2>{ text }</h2>
-              <AlbumsList albums={ albums } artistName={ artistName } />
-            </>
-          )
-        }
+        <div className="form-results-container">
+          <SearchForm
+            handleChange={ this.handleChange }
+            artistName={ artistName }
+            buttonClickFunc={ this.searchAlbums }
+          />
+          {
+            loading ? <Loading /> : (
+              <div className="albuns-container">
+                <h2>{ text }</h2>
+                <AlbumsList albums={ albums } artistName={ artistName } />
+              </div>
+            )
+          }
+        </div>
       </div>
     );
   }
