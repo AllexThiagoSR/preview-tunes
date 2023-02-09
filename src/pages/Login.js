@@ -8,7 +8,7 @@ class Login extends Component {
   state = {
     name: '',
     loading: false,
-    email: '',
+    // email: '',
   };
 
   handleChange = ({ target: { name, type, checked, value } }) => {
@@ -30,7 +30,7 @@ class Login extends Component {
   };
 
   render() {
-    const { name, loading, email } = this.state;
+    const { name, loading } = this.state;
     if (loading) return <Loading />;
     const minCaracters = 3;
     return (
@@ -46,7 +46,7 @@ class Login extends Component {
             placeholder="Nome:"
             type="text"
           />
-          <input
+          {/* <input
             id="login-email"
             type="email"
             value={ email }
@@ -54,11 +54,11 @@ class Login extends Component {
             data-testid="login-email-input"
             onChange={ this.handleChange }
             placeholder="Email:"
-          />
+          /> */}
           <button
             type="button"
             data-testid="login-submit-button"
-            disabled={ name.length < minCaracters || (email.match(/\S+@\S+\.\S+/) === null) }
+            disabled={ name.length < minCaracters }
             onClick={ this.onClickSendButton }
           >
             Enviar
