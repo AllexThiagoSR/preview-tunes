@@ -12,13 +12,20 @@
 .header-container ul {
   display: flex;
   flex-direction: column;
-  height: 100px;
-  justify-content: space-between;
+  height: 150px;
+  justify-content: space-around;
   padding: 0;
 }
 
 .header-container ul li {
+  height: 70px;
   list-style: none;
+  padding: 10px;
+  width: 200px;
+}
+
+.header-container ul li:hover {
+  background-color: rgb(200, 200, 200);
 }
 
 .header-container ul a {

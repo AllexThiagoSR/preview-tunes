@@ -7,7 +7,7 @@ class PlayList extends Component {
     const { tracks, handleChange, favoritesSongsIds } = this.props;
     return (
       <div>
-        <ul>
+        <ul className="playlist">
           {
             tracks.map((track) => (
               <li key={ track.trackId }>

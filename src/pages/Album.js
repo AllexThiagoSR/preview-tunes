@@ -6,6 +6,7 @@ import AlbumCard from '../components/AlbumCard';
 import PlayList from '../components/PlayList';
 import { addSong, getFavoriteSongs, removeSong } from '../services/favoriteSongsAPI';
 import Loading from '../components/Loading';
+import '../styles/Album.css';
 
 class Album extends Component {
   state = {
@@ -56,11 +57,13 @@ class Album extends Component {
       </>
     );
     return (
-      <div data-testid="page-album">
+      <div data-testid="page-album" className="album-page">
         <Header />
-        {
-          loading ? <Loading /> : albumPage
-        }
+        <div className="main-sec">
+          {
+            loading ? <Loading /> : albumPage
+          }
+        </div>
       </div>
     );
   }
