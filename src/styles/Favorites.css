@@ -1,0 +1,16 @@
+.favorites-page {
+  display: flex;
+}
+
+.favorites-container {
+  height: 100vh;
+  padding: 60px;
+  width: 75%;
+}
+
+.favorites-list {
+  list-style: none;
+  max-height: 100%;
+  overflow-y: scroll;
+  padding: 0;
+}

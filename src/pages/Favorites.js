@@ -3,6 +3,7 @@ import Header from '../components/Header';
 import Loading from '../components/Loading';
 import MusicCard from '../components/MusicCard';
 import { getFavoriteSongs, removeSong } from '../services/favoriteSongsAPI';
+import '../styles/Favorites.css';
 
 class Favorites extends Component {
   state = {
@@ -47,17 +48,25 @@ class Favorites extends Component {
         />
       </li>
     ));
-    const hasFavoritesSongs = (favoritesSongs.length !== 0) ? favoritesSongsList : (
+    const hasFavoritesSongs = (favoritesSongs.length !== 0) ? (
+      <ul className="favorites-list">
+        {
+          favoritesSongsList
+        }
+      </ul>
+    ) : (
       <div>
         <p>Nenhuma música favoritada</p>
       </div>
     );
     return (
-      <div data-testid="page-favorites">
+      <div data-testid="page-favorites" className="favorites-page">
         <Header />
-        {
-          loading ? <Loading /> : hasFavoritesSongs
-        }
+        <div className="favorites-container">
+          {
+            loading ? <Loading /> : hasFavoritesSongs
+          }
+        </div>
       </div>
     );
   }

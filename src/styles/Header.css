@@ -30,7 +30,10 @@
 
 .header-container ul a {
   color: black;
+  display: block;
+  height: 100%;
   text-decoration: none;
+  width: 100%;
 }
 
 .header-user {
