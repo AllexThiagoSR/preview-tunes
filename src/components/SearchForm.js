@@ -11,6 +11,7 @@ class SearchForm extends Component {
           placeholder="Nome do Artista ou Banda:"
           value={ artistName }
           name="artistName"
+          className="artist-name-input"
           data-testid="search-artist-input"
           onChange={ handleChange }
         />

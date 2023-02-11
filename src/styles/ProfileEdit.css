@@ -1,0 +1,52 @@
+.profile-edit-page {
+  display: flex;
+}
+
+.profile-edit-container {
+  display: flex;
+  justify-content: center;
+  padding: 50px 20% 0;
+  width: 75%;
+}
+
+.user-img-container-edit {
+  height: 200px;
+  margin-bottom: 20px;
+  width: 200px;
+}
+
+.user-img-container-edit img {
+  border: 1px solid black;
+  border-radius: 100px;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+}
+
+.img-edit-label {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}
+
+input, textarea {
+  width: 100%;
+}
+
+.edit-form label {
+  margin-top: 20px;
+}
+
+.save-edit-button {
+  align-self: center;
+  margin-top: 30px;
+  width: fit-content;
+}
+

@@ -4,6 +4,7 @@ import Header from '../components/Header';
 import Loading from '../components/Loading';
 import ProfileEditForm from '../components/ProfileEditForm';
 import { getUser, updateUser } from '../services/userAPI';
+import '../styles/ProfileEdit.css';
 
 class ProfileEdit extends Component {
   state = {
@@ -64,15 +65,17 @@ class ProfileEdit extends Component {
     } = this.state;
 
     return (
-      <div data-testid="page-profile-edit">
+      <div data-testid="page-profile-edit" className="profile-edit-page">
         <Header />
-        {
-          loading ? <Loading /> : <ProfileEditForm
-            inputsInfos={ { inputDescription, inputName, inputImage, inputEmail } }
-            handleChange={ this.handleChange }
-            onClickFunc={ this.onClickSaveButton }
-          />
-        }
+        <div className="profile-edit-container">
+          {
+            loading ? <Loading /> : <ProfileEditForm
+              inputsInfos={ { inputDescription, inputName, inputImage, inputEmail } }
+              handleChange={ this.handleChange }
+              onClickFunc={ this.onClickSaveButton }
+            />
+          }
+        </div>
       </div>
     );
   }
