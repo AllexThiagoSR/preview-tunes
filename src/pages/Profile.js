@@ -3,6 +3,7 @@ import Header from '../components/Header';
 import { getUser } from '../services/userAPI';
 import UserProfile from '../components/UserProfile';
 import Loading from '../components/Loading';
+import '../styles/Profile.css';
 
 class Profile extends Component {
   state = {
@@ -21,11 +22,13 @@ class Profile extends Component {
   render() {
     const { loading, loggedUser } = this.state;
     return (
-      <div data-testid="page-profile">
+      <div data-testid="page-profile" className="profile-page">
         <Header />
-        {
-          loading ? <Loading /> : <UserProfile user={ loggedUser } />
-        }
+        <div className="profile-container">
+          {
+            loading ? <Loading /> : <UserProfile user={ loggedUser } />
+          }
+        </div>
       </div>
     );
   }
